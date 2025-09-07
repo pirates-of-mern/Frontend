@@ -6,7 +6,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<LandingPage/>} ></Route>
+        <Route path='/sih-frontend/' element={<LandingPage/>} ></Route>
       </Routes>
     </Router>
   )
