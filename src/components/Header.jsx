@@ -10,7 +10,7 @@ const Header = () => {
           <button className="p-3 rounded-lg bg-green-200 hover:bg-green-300">
             <Menu size={22} />
           </button>
-          <div className="relative ">
+          <div className="relative min-w-[200px] md:min-w-[300px] lg:min-w-[400px]">
             <input
               type="text"
               placeholder="Search here"
@@ -21,7 +21,7 @@ const Header = () => {
         </div>
 
         {/* Right Side */}
-        <button className="px-5 py-2 rounded-full  bg-green-300 shadow-md hover:bg-green-400">
+        <button className="px-5 hidden md:flex py-2 rounded-full hidden-md bg-green-300 shadow-md hover:bg-green-400">
           ABOUT US
         </button>
       </div>
