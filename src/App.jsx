@@ -1,8 +1,14 @@
+import {BrowserRouter as Router,  Route, Routes } from 'react-router-dom';
 import './App.css';
+import LandingPage from './pages/LandingPage.jsx';
 
 function App() {
   return (
-    <h1>HI</h1>
+    <Router basename="/sih-frontend" >
+      <Routes>
+        <Route path='/' element={<LandingPage/>} ></Route>
+      </Routes>
+    </Router>
   )
 }
 
