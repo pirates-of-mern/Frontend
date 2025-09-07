@@ -111,7 +111,7 @@ export default function LandingPage() {
       </main>
 
       {/* Decorative shapes (background) */}
-      <div className="pointer-events-none absolute -left-16 -top-16 w-48 h-48 bg-emerald-200 rounded-full opacity-80 blur-sm transform rotate-12" />
+      {/* <div className="pointer-events-none absolute -left-16 -top-16 w-48 h-48 bg-emerald-200 rounded-full opacity-80 blur-sm transform rotate-12" /> */}
       <div className="pointer-events-none absolute -right-28 -bottom-20 w-64 h-64 bg-emerald-300 rounded-full opacity-70 blur-sm transform rotate-12" />
 
     </div>
