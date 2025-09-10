@@ -2,9 +2,15 @@ import React from "react";
 import vid1 from "../assets/vid1.mp4";
 import vid2 from "../assets/vid2.mp4";
 import vid3 from "../assets/vid3.mp4";
-import ProfileCard from "../cards/ProfileCard";
+import ProfileCard from "../cards/ProfileCard.jsx";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+
+  const handleStartClick = () => {
+    navigate("/explore"); // redirect
+  };
   return (
     <main className="pt-24 px-8 pb-16 bg-gradient-to-br from-green-100 to-green-150 min-h-screen">
       <div className="flex flex-col md:flex-row gap-8 items-center">
@@ -14,7 +20,9 @@ const LandingPage = () => {
             BHARAT <br /> SANSKRITI <br /> ATLAS ...
           </h1>
 
-          <button className="w-36 px-5 py-2 text-4xl bg-green-500 text-white font-medium rounded-full shadow-lg transition duration-300 hover:bg-green-600 hover:shadow-green-400/70 hover:scale-110 hover:-translate-y-1">
+          <button
+          onClick={handleStartClick}
+          className="w-36 px-5 py-2 text-4xl bg-green-500 text-white font-medium rounded-full shadow-lg transition duration-300 hover:bg-green-600 hover:shadow-green-400/70 hover:scale-110 hover:-translate-y-1">
             Start
           </button>
 
@@ -56,6 +64,9 @@ const LandingPage = () => {
           ))}
         </div>
       </div>
+      <ProfileCard className="mt-16 mx-auto" />
+      <ProfileCard className="mt-16 mx-auto" />
+      <ProfileCard className="mt-16 mx-auto" />
       <ProfileCard className="mt-16 mx-auto" />
     </main>
   );

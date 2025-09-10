@@ -1,9 +1,19 @@
 import React, { useState } from "react";
 import { Menu, X, Search } from "lucide-react";
-import logo from "../assets/logo.png"; // yahan apna logo path lagana
+import logo from "../assets/logo.png";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
+
+  const handleSignupClick = () => {
+    navigate("/signup");
+  };
 
   return (
     <header className="top-6 left-6 right-6 w-full z-50 bg-green-100 border-gray-800 shadow-lg">
@@ -18,14 +28,14 @@ const Header = () => {
             {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
 
-          {/* Website Logo */}
-          <div className="flex items-center">
+          {/* Website Logo (redirect to LandingPage) */}
+          <Link to="/" className="flex items-center">
             <img
-              src={logo} // yahan apna logo path lagana
+              src={logo}
               alt="Logo"
-              className="h-10 w-10 rounded-full object-cover"
+              className="h-10 w-10 rounded-full object-cover cursor-pointer"
             />
-          </div>
+          </Link>
 
           {/* Search bar */}
           <div className="relative min-w-[200px] md:min-w-[300px] lg:min-w-[400px] ml-2">
@@ -43,72 +53,72 @@ const Header = () => {
 
         {/* Right Side - Desktop Nav */}
         <nav className="hidden md:flex gap-6">
-          <a
-            href="#"
+          <Link
+            to="/"
             className="px-3 py-2 text-green-800 font-medium hover:text-green-600"
           >
             Home
-          </a>
+          </Link>
           <a
-            href="#"
+            href="#features"
             className="px-3 py-2 text-green-800 font-medium hover:text-green-600"
           >
             Features
           </a>
           <a
-            href="#"
+            href="#contact"
             className="px-3 py-2 text-green-800 font-medium hover:text-green-600"
           >
             Contact Us
           </a>
-          <a
-            href="#"
+          <button
+            onClick={handleSignupClick}
             className="px-5 py-2 rounded-full bg-green-300 shadow-md hover:bg-green-400"
           >
             Sign Up
-          </a>
-          <a
-            href="#"
+          </button>
+          <button
+            onClick={handleLoginClick}
             className="px-5 py-2 rounded-full bg-green-300 shadow-md hover:bg-green-400"
           >
             Log In
-          </a>
+          </button>
         </nav>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-green-50 shadow-inner px-6 py-4 space-y-3">
-          <a
-            href="#"
+          <Link
+            to="/"
             className="block text-green-800 font-medium hover:text-green-600"
           >
             Home
-          </a>
+          </Link>
           <a
-            href="#"
+            href="#features"
             className="block text-green-800 font-medium hover:text-green-600"
           >
             Features
           </a>
           <a
-            href="#"
+            href="#contact"
             className="block text-green-800 font-medium hover:text-green-600"
           >
             Contact Us
           </a>
-          <a
-            href="#"
-            className="block px-4 py-2 rounded-full bg-green-300 shadow-md hover:bg-green-400 text-center"
+          <button
+            onClick={handleSignupClick}
+            className="block w-full px-4 py-2 rounded-full bg-green-300 shadow-md hover:bg-green-400 text-center"
           >
             Sign Up
-          </a>
-          <a
-            href="#"
-            className="block px-4 py-2 rounded-full bg-green-300 shadow-md hover:bg-green-400 text-center"
+          </button>
+          <button
+            onClick={handleLoginClick}
+            className="block w-full px-4 py-2 rounded-full bg-green-300 shadow-md hover:bg-green-400 text-center"
           >
             Log In
-          </a>
+          </button>
         </div>
       )}
     </header>
