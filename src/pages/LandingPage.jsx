@@ -2,7 +2,7 @@ import React from "react";
 import vid1 from "../assets/vid1.mp4";
 import vid2 from "../assets/vid2.mp4";
 import vid3 from "../assets/vid3.mp4";
-import ProfileCard from "../cards/ProfileCard.jsx";
+import ProfileCard from "../components/cards/ProfileCard.jsx";
 import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
