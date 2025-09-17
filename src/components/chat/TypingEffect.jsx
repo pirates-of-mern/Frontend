@@ -22,19 +22,18 @@ const TypingEffect = ({ text, speed = 20, onDone }) => {
 
     const line = lines[lineIndex];
     if (!line) {
-      // Handle empty line: move to next line immediately
       setLineIndex(lineIndex + 1);
       return;
     }
 
     let i = 0;
-    setCurrentLine(""); // Clear before typing new line
+    setCurrentLine("");
     const interval = setInterval(() => {
       setCurrentLine(line.slice(0, i + 1));
       i++;
       if (i >= line.length) {
         clearInterval(interval);
-        setTimeout(() => setLineIndex(lineIndex + 1), 150); // Delay between lines
+        setTimeout(() => setLineIndex(lineIndex + 1), 150);
       }
     }, speed);
 
@@ -44,7 +43,7 @@ const TypingEffect = ({ text, speed = 20, onDone }) => {
   return (
     <div>
       {lines.slice(0, lineIndex).map((l, idx) => (
-        <ReactMarkdown key={idx}>{l || " "}</ReactMarkdown> // render empty lines as space to maintain spacing
+        <ReactMarkdown key={idx}>{l || " "}</ReactMarkdown>
       ))}
       {currentLine && <ReactMarkdown>{currentLine}</ReactMarkdown>}
     </div>
