@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { AuthContext } from "./AuthContext"; // Adjust path if needed
+import { AuthContext } from "./AuthContext";
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -13,7 +13,7 @@ useEffect(() => {
     }
   } catch (error) {
     console.error("Failed to parse stored user:", error);
-    localStorage.removeItem("user"); // clean up bad data
+    localStorage.removeItem("user");
   }
 }, []);
 

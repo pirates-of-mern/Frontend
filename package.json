@@ -12,12 +12,16 @@
     "predeploy": "npm run build"
   },
   "dependencies": {
+    "@cloudinary/react": "^1.14.3",
+    "@cloudinary/url-gen": "^1.22.0",
     "@material-tailwind/react": "^2.1.10",
     "axios": "^1.11.0",
     "lucide-react": "^0.542.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router-dom": "^7.8.2"
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.8.2",
+    "react-spring": "^10.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",

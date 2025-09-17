@@ -9,17 +9,15 @@ export const getAllHeritages = async () => {
 };
 
 // Add new heritage (Admin)
-export const addHeritage = async (heritageData, token) => {
-    const res = await axios.post(BASE_URL, heritageData, {
-        headers: { Authorization: `Bearer ${token}` },
-    });
+export const addHeritage = async (heritageData) => {
+    const res = await axios.post(BASE_URL, heritageData);
     return res.data;
 };
 
 // updated heritages sides..
 // Update heritage
 export const updateHeritage = async (id, heritageData, token) => {
-    const res = await axios.put(`${BASE_URL}/${id}`, heritageData, {
+    const res = await axios.patch(`${BASE_URL}/${id}`, heritageData, {
         headers: { Authorization: `Bearer ${token}` },
     });
     return res.data;

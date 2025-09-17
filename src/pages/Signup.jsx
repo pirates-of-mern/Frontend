@@ -15,15 +15,12 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
+    setError(""); 
 
     try {
       const res = await registerUser({ name, email, password });
-      alert(
-        res.message ||
-          "Registered successfully! Check your email for verification."
-      );
-      navigate("/login");
+
+      navigate("/dashboard");
     } catch (err) {
       setError(err?.error || "Registration failed");
     } finally {

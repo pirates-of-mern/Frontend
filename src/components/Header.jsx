@@ -1,26 +1,18 @@
 import React, { useState, useContext } from "react";
-import { Menu, X, Search, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import logo from "../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext"; // 🔥 import
+import { AuthContext } from "../context/AuthContext";
+import SearchBar from "./SearchBar";
 
-const Header = () => {
+const Header = ({ setSearchTerm }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const { user, logout } = useContext(AuthContext);
 
-  const { user, logout } = useContext(AuthContext); // 🔥 context se user & logout
-
-  const handleLoginClick = () => {
-    navigate("/login");
-  };
-
-  const handleSignupClick = () => {
-    navigate("/signup");
-  };
-
-  const handleChatbotClick = () => {
-    navigate("/chatbot");
-  };
+  const handleLoginClick = () => navigate("/login");
+  const handleSignupClick = () => navigate("/signup");
+  const handleChatbotClick = () => navigate("/chatbot");
 
   const handleLogoutClick = () => {
     logout();
@@ -51,23 +43,8 @@ const Header = () => {
             />
           </Link>
 
-          {/* Search bar with button */}
-          <div className="flex items-center ml-2 rounded-full border shadow-sm focus-within:ring-2 focus-within:ring-green-400 overflow-hidden">
-            <div className="relative flex-1">
-              <input
-                type="text"
-                placeholder="Search here"
-                className="pl-10 pr-3 py-2 w-full outline-none"
-              />
-              <Search
-                className="absolute left-3 top-2.5 text-gray-500"
-                size={18}
-              />
-            </div>
-            <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 font-medium">
-              Search
-            </button>
-          </div>
+          {/* ✅ Single SearchBar Component */}
+          <SearchBar onSearchChange={setSearchTerm} />
 
           {/* AI Widget */}
           <button

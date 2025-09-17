@@ -1,15 +1,9 @@
+// api/aiAPI.js
 import axios from "axios";
 
-export const queryTextModel = async (model, question) => {
-    const res = await axios.get(`/api/ai/text`, {
-        params: { model, q: question },
+export const fetchAIResponse = async (question) => {
+    const res = await axios.post("http://localhost:5000/api/chat", {
+        question,
     });
-    return res.data;
-};
-
-export const generateImage = async (prompt) => {
-    const res = await axios.get(`/api/ai/image`, {
-        params: { q: prompt },
-    });
-    return res.data;
+    return res.data.answer;
 };
