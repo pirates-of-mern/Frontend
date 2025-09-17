@@ -3,6 +3,29 @@ import { getAllHeritages } from "../../api/heritageAPI";
 import HeritageGrid from "./HeritageGrid";
 import { motion } from "framer-motion";
 
+const SkeletonCard = () => {
+  return (
+    <div className="animate-pulse flex flex-col border border-gray-300 rounded-lg shadow-md p-4 bg-white">
+      {/* Image placeholder */}
+      <div className="w-full h-48 bg-gray-300 rounded-md mb-4"></div>
+
+      {/* Title placeholder */}
+      <div className="h-6 bg-gray-300 rounded w-3/4 mb-3"></div>
+
+      {/* Subtitle placeholder */}
+      <div className="h-4 bg-gray-300 rounded w-1/2 mb-3"></div>
+
+      {/* Text lines placeholders */}
+      <div className="space-y-2">
+        <div className="h-4 bg-gray-300 rounded w-full"></div>
+        <div className="h-4 bg-gray-300 rounded w-5/6"></div>
+        <div className="h-4 bg-gray-300 rounded w-2/3"></div>
+      </div>
+    </div>
+  );
+};
+
+
 const HeritageList = ({ token, isAdmin, searchTerm }) => {
   const [heritages, setHeritages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -64,12 +87,19 @@ const HeritageList = ({ token, isAdmin, searchTerm }) => {
     setFilteredHeritages(filtered);
   }, [searchTerm, heritages]);
 
-  if (loading) return <p className="text-center mt-10">Loading...</p>;
+  if (loading)
+    return (
+      <div className="mt-20 px-6 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {[...Array(6)].map((_, i) => (
+          <SkeletonCard key={i} />
+        ))}
+      </div>
+    );
 
   const title = "Discover India's Heritage";
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
+    <div className="mt-20 px-6 max-w-7xl mx-auto">
       {/* Animated Gradient Title */}
       <motion.h2
         className="text-4xl md:text-6xl font-extrabold mb-4 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
