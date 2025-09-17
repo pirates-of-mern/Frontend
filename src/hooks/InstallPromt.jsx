@@ -34,8 +34,8 @@ const InstallPrompt = () => {
       aria-label="Install the app"
       style={{
         position: "fixed",
-        top: 25,
-        right: 106,
+        top: 16,
+        right: 126,
         padding: "6px 12px",
         fontSize: "14px",
         borderRadius: "20px",
