@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000/api/heritages";
+const BASE_URL = "https://trdn.onrender.com/api/heritages";
 
 // Get all heritages
 export const getAllHeritages = async () => {
