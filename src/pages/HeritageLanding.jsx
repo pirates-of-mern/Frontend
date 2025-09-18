@@ -6,39 +6,40 @@ import dance from "../assets/dance.png";
 import dress from "../assets/dress.jpg";
 import music from "../assets/music.png";
 import vidicon from "../assets/vidicon.png";
+import sites from "../assets/sites.png";
 
 export default function HeritageLanding() {
   const navigate = useNavigate();
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8"
+      className="mt-16 min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8"
       style={{ background: "linear-gradient(180deg,#dfffee,#e7fff7)" }}
     >
-      <div className="w-full max-w-6xl">
+      <div className="w-full max-w-6xl flex flex-col gap-10">
         {/* TOP SECTION */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-          {/* LEFT HERO CARD */}
+          {/* LEFT: Hero Card */}
           <div
             onClick={() => navigate("/explore")}
-            className="md:col-span-2 rounded-3xl px-6 py-8 md:p-16 shadow-2xl 
+            className="md:col-span-2 rounded-3xl p-8 md:p-16 shadow-2xl 
                        transition-transform duration-300 hover:scale-105 
                        hover:bg-white/30 backdrop-blur-md cursor-pointer"
             style={{ background: "rgba(255,250,240,0.9)" }}
           >
-            <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
-              <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden bg-gray-100">
+            <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
+              <div className="w-24 h-24 md:w-40 md:h-40 rounded-xl overflow-hidden bg-gray-100">
                 <img
                   src={vidicon}
                   alt="film icon"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="flex-1">
-                <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+              <div className="flex-1 text-center md:text-left">
+                <h1 className="font-serif text-4xl md:text-6xl font-bold text-gray-900">
                   EXPLORE
                 </h1>
-                <p className="mt-3 text-lg sm:text-xl text-gray-700 max-w-md">
+                <p className="mt-3 text-lg md:text-xl text-gray-700">
                   A journey through
                   <br />
                   India's timeless <br />
@@ -46,67 +47,124 @@ export default function HeritageLanding() {
                 </p>
               </div>
             </div>
-            <p className="mt-6 text-sm text-gray-600 max-w-lg">
+            <p className="mt-6 text-sm md:text-base text-gray-600">
               “Stories that echo wisdom, weaving myths, legends, and memories.”
             </p>
           </div>
 
-          {/* RIGHT COLUMN: music + cuisine */}
+          {/* RIGHT COLUMN: stacked two cards */}
           <div className="flex flex-col gap-6">
-            {[
-              { label: "MUSIC", image: music, route: "/music" },
-              { label: "CUISINE", image: cuisine, route: "/cuisine" },
-            ].map((item) => (
-              <div
-                key={item.label}
-                onClick={() => navigate(item.route)}
-                className="rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg
-                           transition-transform duration-300 hover:scale-105 hover:bg-white/30 
-                           backdrop-blur-md cursor-pointer"
-                style={{ background: "rgba(255,250,240,0.95)" }}
-              >
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden bg-gray-50">
-                  <img
-                    src={item.image}
-                    alt={`${item.label.toLowerCase()} icon`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="mt-4 text-xl sm:text-2xl font-serif">
-                  {item.label}
-                </h3>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* BOTTOM SECTION */}
-        <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-16">
-          {[
-            { label: "FESTIVAL", image: festicon, route: "/festival" },
-            { label: "ATTIRE", image: dress, route: "/attire" },
-            { label: "DANCE", image: dance, route: "/dance" },
-          ].map((item) => (
+            {/* Music Card */}
             <div
-              key={item.label}
-              onClick={() => navigate(item.route)}
-              className="rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg w-full sm:w-72
+              onClick={() => navigate("/music")}
+              className="rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg
                          transition-transform duration-300 hover:scale-105 hover:bg-white/30 
                          backdrop-blur-md cursor-pointer"
               style={{ background: "rgba(255,250,240,0.95)" }}
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden bg-gray-50">
+              <div className="w-20 h-20 rounded-lg overflow-hidden bg-gray-50">
                 <img
-                  src={item.image}
-                  alt={`${item.label.toLowerCase()} icon`}
+                  src={music}
+                  alt="music icon"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h4 className="mt-4 text-xl sm:text-2xl font-serif">
-                {item.label}
-              </h4>
+              <h3 className="mt-4 text-xl md:text-2xl font-serif">MUSIC</h3>
             </div>
-          ))}
+
+            {/* Cuisine Card */}
+            <div
+              onClick={() => navigate("/cuisine")}
+              className="rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg
+                         transition-transform duration-300 hover:scale-105 hover:bg-white/30 
+                         backdrop-blur-md cursor-pointer"
+              style={{ background: "rgba(255,250,240,0.95)" }}
+            >
+              <div className="w-20 h-20 rounded-lg overflow-hidden bg-gray-50">
+                <img
+                  src={cuisine}
+                  alt="cuisine icon"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="mt-4 text-xl md:text-2xl font-serif">CUISINE</h3>
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM SECTION */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 place-items-center">
+          {/* Festival Card */}
+          <div
+            onClick={() => navigate("/festival")}
+            className="rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg w-full sm:w-72
+                       transition-transform duration-300 hover:scale-105 hover:bg-white/30 
+                       backdrop-blur-md cursor-pointer"
+            style={{ background: "rgba(255,250,240,0.95)" }}
+          >
+            <div className="w-20 h-20 rounded-lg overflow-hidden bg-gray-50">
+              <img
+                src={festicon}
+                alt="festival icon"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <h4 className="mt-4 text-xl md:text-2xl font-serif">FESTIVAL</h4>
+          </div>
+
+          {/* Attire Card */}
+          <div
+            onClick={() => navigate("/attire")}
+            className="rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg w-full sm:w-72
+                       transition-transform duration-300 hover:scale-105 hover:bg-white/30 
+                       backdrop-blur-md cursor-pointer"
+            style={{ background: "rgba(255,250,240,0.95)" }}
+          >
+            <div className="w-20 h-20 rounded-lg overflow-hidden bg-gray-50">
+              <img
+                src={dress}
+                alt="attire icon"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <h4 className="mt-4 text-xl md:text-2xl font-serif">ATTIRE</h4>
+          </div>
+
+          {/* Dance Card */}
+          <div
+            onClick={() => navigate("/dance")}
+            className="rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg w-full sm:w-72
+                       transition-transform duration-300 hover:scale-105 hover:bg-white/30 
+                       backdrop-blur-md cursor-pointer"
+            style={{ background: "rgba(255,250,240,0.95)" }}
+          >
+            <div className="w-20 h-20 rounded-lg overflow-hidden bg-gray-50">
+              <img
+                src={dance}
+                alt="dance icon"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <h4 className="mt-4 text-xl md:text-2xl font-serif">DANCE</h4>
+          </div>
+
+          {/* Sites Card (NEW) */}
+          <div
+            onClick={() => navigate("/sites")}
+            className="rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg w-full sm:w-72
+                       transition-transform duration-300 hover:scale-105 hover:bg-white/30 
+                       backdrop-blur-md cursor-pointer"
+            style={{ background: "rgba(255,250,240,0.95)" }}
+          >
+            <div className="w-20 h-20 rounded-lg overflow-hidden bg-gray-50">
+              <img
+                src={sites}
+                alt="sites icon"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <h4 className="mt-4 text-xl md:text-2xl font-serif">SITES</h4>
+          </div>
         </div>
       </div>
     </div>
