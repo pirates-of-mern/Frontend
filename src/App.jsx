@@ -15,6 +15,7 @@ import HeritageList from "./components/Heritages/HeritageList.jsx";
 import StatesPage from "./components/States.jsx";
 import { useState } from "react";
 import InstallPromt from "./hooks/InstallPromt.jsx";
+import CultureCategoryPage from "./pages/CultureCategoryPage.jsx";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -28,6 +29,11 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/verify/:token" element={<VerifyEmail />} />
           <Route path="/explore" element={<HeritageLanding />} />
+          <Route path="/explore/:stateName" element={<HeritageLanding />} />
+          <Route
+            path="/explore/:stateName/:category"
+            element={<CultureCategoryPage />}
+          />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/states" element={<StatesPage />} />
