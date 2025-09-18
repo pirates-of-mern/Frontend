@@ -36,7 +36,7 @@ function App() {
           />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/chatbot" element={<Chatbot />} />
-          <Route path="/states" element={<StatesPage />} />
+          <Route path="/states" element={<StatesPage searchTerm={searchTerm} />} />
 
           {/* Heritage Routes */}
           <Route path="/addheritage" element={<AddHeritage />} />
