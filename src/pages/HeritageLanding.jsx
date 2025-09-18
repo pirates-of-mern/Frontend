@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import cuisine from "../assets/cuisine.png";
 import festicon from "../assets/festicon.png";
 import dance from "../assets/dance.png";
@@ -10,6 +10,9 @@ import sites from "../assets/sites.png";
 
 export default function HeritageLanding() {
   const navigate = useNavigate();
+  const { stateName } = useParams(); // 👈 dynamic param
+
+  const displayName = stateName ? decodeURIComponent(stateName) : "india";
 
   return (
     <div
@@ -21,7 +24,7 @@ export default function HeritageLanding() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
           {/* LEFT: Hero Card */}
           <div
-            onClick={() => navigate("/explore")}
+            onClick={() => navigate("/explore/" + (stateName || ""))}
             className="md:col-span-2 rounded-3xl p-8 md:p-16 shadow-2xl 
                        transition-transform duration-300 hover:scale-105 
                        hover:bg-white/30 backdrop-blur-md cursor-pointer"
@@ -37,12 +40,12 @@ export default function HeritageLanding() {
               </div>
               <div className="flex-1 text-center md:text-left">
                 <h1 className="font-serif text-4xl md:text-6xl font-bold text-gray-900">
-                  EXPLORE
+                  EXPLORE {displayName}
                 </h1>
                 <p className="mt-3 text-lg md:text-xl text-gray-700">
                   A journey through
                   <br />
-                  India's timeless <br />
+                  {displayName}'s timeless <br />
                   <span className="font-semibold">HERITAGE</span>
                 </p>
               </div>
@@ -56,7 +59,7 @@ export default function HeritageLanding() {
           <div className="flex flex-col gap-6">
             {/* Music Card */}
             <div
-              onClick={() => navigate("/music")}
+              onClick={() => navigate(`/explore/${displayName}/music`)}
               className="rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg
                          transition-transform duration-300 hover:scale-105 hover:bg-white/30 
                          backdrop-blur-md cursor-pointer"
@@ -74,7 +77,7 @@ export default function HeritageLanding() {
 
             {/* Cuisine Card */}
             <div
-              onClick={() => navigate("/cuisine")}
+              onClick={() => navigate(`/explore/${displayName}/cuisine`)}
               className="rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg
                          transition-transform duration-300 hover:scale-105 hover:bg-white/30 
                          backdrop-blur-md cursor-pointer"
@@ -96,7 +99,7 @@ export default function HeritageLanding() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 place-items-center">
           {/* Festival Card */}
           <div
-            onClick={() => navigate("/festival")}
+            onClick={() => navigate(`/explore/${displayName}/festivals`)}
             className="rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg w-full sm:w-72
                        transition-transform duration-300 hover:scale-105 hover:bg-white/30 
                        backdrop-blur-md cursor-pointer"
@@ -114,7 +117,7 @@ export default function HeritageLanding() {
 
           {/* Attire Card */}
           <div
-            onClick={() => navigate("/attire")}
+            onClick={() => navigate(`/explore/${displayName}/attire`)}
             className="rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg w-full sm:w-72
                        transition-transform duration-300 hover:scale-105 hover:bg-white/30 
                        backdrop-blur-md cursor-pointer"
@@ -132,7 +135,7 @@ export default function HeritageLanding() {
 
           {/* Dance Card */}
           <div
-            onClick={() => navigate("/dance")}
+            onClick={() => navigate(`/explore/${displayName}/dance`)}
             className="rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg w-full sm:w-72
                        transition-transform duration-300 hover:scale-105 hover:bg-white/30 
                        backdrop-blur-md cursor-pointer"
@@ -148,9 +151,9 @@ export default function HeritageLanding() {
             <h4 className="mt-4 text-xl md:text-2xl font-serif">DANCE</h4>
           </div>
 
-          {/* Sites Card (NEW) */}
+          {/* Sites Card */}
           <div
-            onClick={() => navigate("/sites")}
+            onClick={() => navigate(`/explore/${displayName}/sites`)}
             className="rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg w-full sm:w-72
                        transition-transform duration-300 hover:scale-105 hover:bg-white/30 
                        backdrop-blur-md cursor-pointer"
