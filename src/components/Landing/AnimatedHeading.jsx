@@ -61,7 +61,7 @@ const AnimatedHeading = ({
       `}</style>
 
       <h1
-        className={`leading-snug text-7xl font-extrabold text-green-700 ${className}`}
+        className={`leading-snug text-6xl font-extrabold text-green-700 ${className}`}
       >
         {renderPlan.map((p, i) =>
           p.char === "__LINE_BREAK__" ? (
