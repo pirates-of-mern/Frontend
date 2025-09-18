@@ -1,4 +1,3 @@
-// Chatbot.js
 import React, { useState, useEffect, useRef } from "react";
 import { Home, BookOpen, Plus, Send } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -7,6 +6,8 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [hasStarted, setHasStarted] = useState(false);
+
+  // Ref for auto-scroll
   const messagesEndRef = useRef(null);
 
   const handleSend = () => {
@@ -29,6 +30,7 @@ const Chatbot = () => {
     }, 1000);
   };
 
+  // Auto-scroll inside chat box only
   useEffect(() => {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
@@ -36,7 +38,7 @@ const Chatbot = () => {
   }, [messages]);
 
   return (
-    <div className="flex h-screen bg-white">
+    <div className="flex min-h-screen bg-white">
       {/* Sidebar */}
       <aside className="w-16 md:w-20 bg-gray-100 border-r flex flex-col items-center py-6 space-y-6">
         <div className="flex flex-col items-center mb-8">
@@ -44,6 +46,7 @@ const Chatbot = () => {
             AI Guide
           </span>
         </div>
+
         <nav className="flex flex-col items-center space-y-6 text-gray-600">
           <Link
             to="/"
@@ -61,11 +64,10 @@ const Chatbot = () => {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col h-screen p-6 md:p-10">
+      <main className="flex-1 flex flex-col items-center p-6 md:p-10">
         {!hasStarted ? (
           <>
-            {/* Hero Section */}
-            <div className="flex flex-col items-center text-center max-w-3xl w-full mx-auto">
+            <div className="flex flex-col items-center text-center max-w-3xl w-full">
               <div className="flex items-center justify-center gap-4 mb-4">
                 <div className="bg-gradient-to-tr from-indigo-500 to-blue-500 p-4 rounded-full">
                   <BookOpen size={40} className="text-white" />
@@ -79,13 +81,12 @@ const Chatbot = () => {
               </p>
             </div>
 
-            {/* Story Options */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mb-10 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mb-10">
               <div className="p-6 bg-white border rounded-xl shadow-sm hover:shadow-md transition">
                 <p className="text-gray-700 text-sm md:text-base">
                   Make a story about ancient monuments like the Taj Mahal, Qutub
-                  Minar, and Konark Sun Temple coming alive at night to share
-                  the secrets of India’s past with curious children.
+                  Minar, and Konark Sun Temple coming alive at night to share the
+                  secrets of India’s past with curious children.
                 </p>
               </div>
               <div className="p-6 bg-white border rounded-xl shadow-sm hover:shadow-md transition">
@@ -97,25 +98,24 @@ const Chatbot = () => {
               </div>
               <div className="p-6 bg-white border rounded-xl shadow-sm hover:shadow-md transition">
                 <p className="text-gray-700 text-sm md:text-base">
-                  Tell a story about a wise elephant in Kerala who guides
-                  children through a temple festival, showing them rituals,
-                  dances, and the meaning of devotion.
+                  Tell a story about a wise elephant in Kerala who guides children
+                  through a temple festival, showing them rituals, dances, and the
+                  meaning of devotion.
                 </p>
               </div>
               <div className="p-6 bg-white border rounded-xl shadow-sm hover:shadow-md transition">
                 <p className="text-gray-700 text-sm md:text-base">
-                  Make a story about a curious child who visits an ancient
-                  gurukul and learns wisdom from stories of the Ramayana and
-                  Mahabharata.
+                  Make a story about a curious child who visits an ancient gurukul
+                  and learns wisdom from stories of the Ramayana and Mahabharata.
                 </p>
               </div>
             </div>
           </>
         ) : (
-          // ✅ Chat section with fixed height
-          <div className="flex-1 flex flex-col w-full max-w-3xl mx-auto mb-4 border rounded-lg bg-gray-50">
-            {/* Messages scrollable */}
-            <div className="flex-1 overflow-y-auto space-y-3 p-2">
+          // ✅ Chat box scroll only
+          <div className="flex-1 w-full max-w-3xl mb-4 border rounded-lg bg-gray-50 flex flex-col">
+            {/* Scrollable Messages Section */}
+            <div className="flex-1 overflow-y-auto space-y-3 p-3 max-h-[70vh]">
               {messages.map((msg, idx) => (
                 <div
                   key={idx}
@@ -124,7 +124,7 @@ const Chatbot = () => {
                   }`}
                 >
                   <div
-                    className={`px-4 py-2 rounded-lg text-sm md:text-base max-w-xs ${
+                    className={`px-4 py-2 rounded-lg text-sm md:text-base max-w-xs break-words ${
                       msg.sender === "user"
                         ? "bg-indigo-500 text-white"
                         : "bg-gray-200 text-gray-800"
@@ -134,13 +134,14 @@ const Chatbot = () => {
                   </div>
                 </div>
               ))}
+              {/* Auto-scroll anchor */}
               <div ref={messagesEndRef} />
             </div>
           </div>
         )}
 
-        {/* Chat Input Fixed Bottom */}
-        <div className="w-full max-w-3xl mx-auto mt-2">
+        {/* Chat Input */}
+        <div className="w-full max-w-3xl mt-auto">
           <div className="flex items-center bg-white border rounded-full shadow-sm px-4 py-2">
             <input
               type="text"
