@@ -21,6 +21,11 @@ const Header = ({ setSearchTerm }) => {
     navigate("/");
   };
 
+  // New Button Functionality (Navigate to "/states")
+  const handleStatesClick = () => {
+    navigate("/states");
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 bg-green-100 shadow-md z-50 border-b border-green-300">
       <div className="flex items-center justify-between px-4 py-3 md:px-8">
@@ -55,6 +60,15 @@ const Header = ({ setSearchTerm }) => {
             <MessageCircle size={18} />
             <span className="font-medium">AI Guide</span>
           </button>
+
+          {/* New Button for States Page */}
+          <button
+            onClick={handleStatesClick}
+            className="px-4 py-2 rounded-full bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-white shadow-md hover:shadow-lg hover:scale-105 transition"
+            >
+        States
+        </button>
+
         </div>
 
         {/* Right: Desktop Nav */}
