@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-// 🟢 States Data
+// 🟢 States Data (images already imported)
 import mp from "../assets/states/mp.jpg";
 import rj from "../assets/states/rj.jpg";
 import tn from "../assets/states/tn.jpg";
@@ -38,17 +38,17 @@ import andaman from "../assets/states/andaman.jpg";
 import dadra from "../assets/states/dadra.jpg";
 import daman from "../assets/states/daman.jpg";
 import delhi from "../assets/states/delhi.jpg";
-import chandigarh from "../assets/states/chandigarh.jpg"; 
+import chandigarh from "../assets/states/chandigarh.jpg";
 
-// 🟠 Union Territories (placeholder images, tum apne add kar lena)
+// 🟠 Union Territories
 const unionTerritories = [
-  { name: "Andaman and Nicobar Islands", image: andaman},
-  { name: "Chandigarh", image: chandigarh},
+  { name: "Andaman and Nicobar Islands", image: andaman },
+  { name: "Chandigarh", image: chandigarh },
   { name: "Dadra and Nagar Haveli", image: dadra },
   { name: "Daman and Diu", image: daman },
   { name: "Delhi", image: delhi },
   { name: "Jammu and Kashmir", image: jammu },
-  { name: "Ladakh", image: ladakh},
+  { name: "Ladakh", image: ladakh },
   { name: "Lakshadweep", image: lakshadweep },
   { name: "Puducherry", image: puducherry },
 ];
@@ -92,46 +92,46 @@ const StatesPage = () => {
     navigate(`/explore`);
   };
 
-  // 🃏 Card Component (reusable)
+  // 🃏 Card Component
   const Card = ({ item }) => (
     <div
       onClick={() => handleCardClick(item.name)}
-      className="cursor-pointer relative rounded-xl overflow-hidden shadow-lg group hover:scale-105 transition"
+      className="cursor-pointer relative rounded-xl overflow-hidden shadow-xl group transform hover:scale-105 transition-transform duration-500"
     >
       {/* Background Image */}
       <img
         src={item.image}
         alt={item.name}
-        className="w-full h-40 object-cover group-hover:opacity-80 transition"
+        className="w-full h-40 object-cover group-hover:opacity-80 transition-opacity duration-300"
       />
-
       {/* Overlay Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
       {/* Text */}
-      <h2 className="absolute bottom-2 left-2 text-white font-bold text-lg drop-shadow-md">
+      <h2 className="absolute bottom-4 left-4 text-white font-bold text-xl drop-shadow-lg">
         {item.name}
       </h2>
     </div>
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-100 via-green-200 to-green-300 px-6 py-10">
-      <h1 className="text-3xl md:text-4xl font-bold text-center text-green-900 mb-12">
+    <div className="mt-16 min-h-screen bg-gradient-to-br from-green-100 via-green-200 to-green-300 px-8 py-12">
+      <h1 className="text-4xl font-bold text-center text-green-900 mb-12 font-serif">
         Explore India
       </h1>
 
       {/* States Section */}
       <h2 className="text-2xl font-semibold text-green-800 mb-6">States</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-12">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
         {states.map((state, idx) => (
           <Card key={idx} item={state} />
         ))}
       </div>
 
       {/* Union Territories Section */}
-      <h2 className="text-2xl font-semibold text-green-800 mb-6">Union Territories</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <h2 className="text-2xl font-semibold text-green-800 mb-6">
+        Union Territories
+      </h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
         {unionTerritories.map((ut, idx) => (
           <Card key={idx} item={ut} />
         ))}
