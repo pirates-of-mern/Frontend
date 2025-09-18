@@ -88,7 +88,7 @@ const states = [
 // Import India hero image
 import indiaImg from "../assets/logo.jpg";
 
-const StatesPage = () => {
+const StatesPage = ({ searchTerm }) => {
   const navigate = useNavigate();
 
   const handleCardClick = (name) => {
@@ -113,6 +113,14 @@ const StatesPage = () => {
     </div>
   );
 
+  // 🔹 Filter states and UTs by search term
+  const filteredStates = states.filter((state) =>
+    state.name.toLowerCase().includes(searchTerm?.toLowerCase() || "")
+  );
+  const filteredUTs = unionTerritories.filter((ut) =>
+    ut.name.toLowerCase().includes(searchTerm?.toLowerCase() || "")
+  );
+
   return (
     <div className="mt-16 min-h-screen bg-gradient-to-br from-green-100 via-green-200 to-green-300 px-8 py-12">
       {/* India Hero Section */}
@@ -130,7 +138,7 @@ const StatesPage = () => {
       {/* States Section */}
       <h2 className="text-2xl font-semibold text-green-800 mb-6">States</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
-        {states.map((state, idx) => (
+        {filteredStates.map((state, idx) => (
           <Card key={idx} item={state} />
         ))}
       </div>
@@ -140,7 +148,7 @@ const StatesPage = () => {
         Union Territories
       </h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
-        {unionTerritories.map((ut, idx) => (
+        {filteredUTs.map((ut, idx) => (
           <Card key={idx} item={ut} />
         ))}
       </div>
