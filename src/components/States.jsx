@@ -121,39 +121,41 @@ const StatesPage = ({ searchTerm }) => {
     ut.name.toLowerCase().includes(searchTerm?.toLowerCase() || "")
   );
 
-  return (
-    <div className="mt-16 min-h-screen bg-gradient-to-br from-green-100 via-green-200 to-green-300 px-8 py-12">
-      {/* India Hero Section */}
-      <div
-        onClick={() => navigate("/explore/india")}
-        className="relative mb-12 cursor-pointer rounded-xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-300"
-      >
-        <img src={indiaImg} alt="India" className="w-full h-64 object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent"></div>
-        <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-4xl drop-shadow-lg">
-          India
-        </h2>
-      </div>
+ return (
+   <div className="mt-16 min-h-screen bg-gradient-to-br from-green-100 via-green-200 to-green-300 px-8 py-12">
+     {/* India Hero Section (Hide when searching) */}
+     {!searchTerm && (
+       <div
+         onClick={() => navigate("/explore/india")}
+         className="relative mb-12 cursor-pointer rounded-xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-300"
+       >
+         <img src={indiaImg} alt="India" className="w-full h-64 object-cover" />
+         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent"></div>
+         <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-4xl drop-shadow-lg">
+           India
+         </h2>
+       </div>
+     )}
 
-      {/* States Section */}
-      <h2 className="text-2xl font-semibold text-green-800 mb-6">States</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
-        {filteredStates.map((state, idx) => (
-          <Card key={idx} item={state} />
-        ))}
-      </div>
+     {/* States Section */}
+     <h2 className="text-2xl font-semibold text-green-800 mb-6">States</h2>
+     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-12">
+       {filteredStates.map((state, idx) => (
+         <Card key={idx} item={state} />
+       ))}
+     </div>
 
-      {/* Union Territories Section */}
-      <h2 className="text-2xl font-semibold text-green-800 mb-6">
-        Union Territories
-      </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
-        {filteredUTs.map((ut, idx) => (
-          <Card key={idx} item={ut} />
-        ))}
-      </div>
-    </div>
-  );
+     {/* Union Territories Section */}
+     <h2 className="text-2xl font-semibold text-green-800 mb-6">
+       Union Territories
+     </h2>
+     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+       {filteredUTs.map((ut, idx) => (
+         <Card key={idx} item={ut} />
+       ))}
+     </div>
+   </div>
+ );
 };
 
 export default StatesPage;
