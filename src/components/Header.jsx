@@ -48,6 +48,15 @@ const Header = ({ setSearchTerm }) => {
               className="h-10 w-10 rounded-full object-cover cursor-pointer"
             />
           </Link>
+
+           {/* States Button (Mobile Version) */}
+          <button
+            onClick={handleStatesClick}
+            className="px-4 py-2 rounded-full bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-white shadow-md hover:shadow-lg hover:scale-105 transition md:hidden"
+              >
+              States
+          </button>
+          
         </div>
 
         {/* Middle: Desktop Search + Chatbot Button */}
