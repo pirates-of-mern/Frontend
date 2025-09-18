@@ -85,28 +85,28 @@ const states = [
   { name: "West Bengal", image: wb },
 ];
 
+// Import India hero image
+import indiaImg from "../assets/logo.jpg";
+
 const StatesPage = () => {
   const navigate = useNavigate();
 
   const handleCardClick = (name) => {
-    navigate(`/explore`);
+    const slug = name.toLowerCase().replace(/\s+/g, "-");
+    navigate(`/explore/${slug}`);
   };
 
-  // 🃏 Card Component
   const Card = ({ item }) => (
     <div
       onClick={() => handleCardClick(item.name)}
       className="cursor-pointer relative rounded-xl overflow-hidden shadow-xl group transform hover:scale-105 transition-transform duration-500"
     >
-      {/* Background Image */}
       <img
         src={item.image}
         alt={item.name}
         className="w-full h-40 object-cover group-hover:opacity-80 transition-opacity duration-300"
       />
-      {/* Overlay Gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
-      {/* Text */}
       <h2 className="absolute bottom-4 left-4 text-white font-bold text-xl drop-shadow-lg">
         {item.name}
       </h2>
@@ -115,9 +115,17 @@ const StatesPage = () => {
 
   return (
     <div className="mt-16 min-h-screen bg-gradient-to-br from-green-100 via-green-200 to-green-300 px-8 py-12">
-      <h1 className="text-4xl font-bold text-center text-green-900 mb-12 font-serif">
-        Explore India
-      </h1>
+      {/* India Hero Section */}
+      <div
+        onClick={() => navigate("/explore/india")}
+        className="relative mb-12 cursor-pointer rounded-xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-300"
+      >
+        <img src={indiaImg} alt="India" className="w-full h-64 object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent"></div>
+        <h2 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white font-bold text-4xl drop-shadow-lg">
+          India
+        </h2>
+      </div>
 
       {/* States Section */}
       <h2 className="text-2xl font-semibold text-green-800 mb-6">States</h2>
