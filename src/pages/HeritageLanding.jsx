@@ -99,7 +99,7 @@ export default function HeritageLanding() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 place-items-center">
           {/* Festival Card */}
           <div
-            onClick={() => navigate(`/explore/${displayName}/festivals`)}
+            onClick={() => navigate(`/explore/${displayName}/festival`)}
             className="rounded-2xl p-6 flex flex-col items-center justify-center shadow-lg w-full sm:w-72
                        transition-transform duration-300 hover:scale-105 hover:bg-white/30 
                        backdrop-blur-md cursor-pointer"
