@@ -5,7 +5,7 @@ import rajasthan from "./states/rajasthan";
 import punjab from "./states/punjab";
 import andamanAndNicobar from "./states/AndamanAndNicobarIslands";
 import andhraPradesh from "./states/AndhraPradesh";
-import arunachalPradesh from "./states/arunachalPradesh";
+import arunachalPradesh from "./states/ArunachalPradesh";
 import assam from "./states/Assam";
 import bihar from "./states/Bihar";
 import chhattisgarh from "./states/Chhattisgarh";
@@ -77,4 +77,5 @@ const stateCultureData = {
 };
 
 export default stateCultureData;
+
 
