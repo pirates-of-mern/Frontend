@@ -5,26 +5,25 @@ import { motion } from "framer-motion";
 
 const SkeletonCard = () => {
   return (
-    <div className="animate-pulse flex flex-col border border-gray-300 rounded-lg shadow-md p-4 bg-white">
+    <div className="animate-pulse flex flex-col border border-green-200 rounded-lg shadow-md p-4 bg-gradient-to-br from-green-50 to-green-100">
       {/* Image placeholder */}
-      <div className="w-full h-48 bg-gray-300 rounded-md mb-4"></div>
+      <div className="w-full h-48 bg-green-200 rounded-md mb-4"></div>
 
       {/* Title placeholder */}
-      <div className="h-6 bg-gray-300 rounded w-3/4 mb-3"></div>
+      <div className="h-6 bg-green-200 rounded w-3/4 mb-3"></div>
 
       {/* Subtitle placeholder */}
-      <div className="h-4 bg-gray-300 rounded w-1/2 mb-3"></div>
+      <div className="h-4 bg-green-200 rounded w-1/2 mb-3"></div>
 
       {/* Text lines placeholders */}
       <div className="space-y-2">
-        <div className="h-4 bg-gray-300 rounded w-full"></div>
-        <div className="h-4 bg-gray-300 rounded w-5/6"></div>
-        <div className="h-4 bg-gray-300 rounded w-2/3"></div>
+        <div className="h-4 bg-green-200 rounded w-full"></div>
+        <div className="h-4 bg-green-200 rounded w-5/6"></div>
+        <div className="h-4 bg-green-200 rounded w-2/3"></div>
       </div>
     </div>
   );
 };
-
 
 const HeritageList = ({ token, isAdmin, searchTerm }) => {
   const [heritages, setHeritages] = useState([]);
@@ -102,7 +101,7 @@ const HeritageList = ({ token, isAdmin, searchTerm }) => {
     <div className="mt-20 px-6 max-w-7xl mx-auto">
       {/* Animated Gradient Title */}
       <motion.h2
-        className="text-4xl md:text-6xl font-extrabold mb-4 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+        className="text-4xl md:text-6xl font-extrabold mb-4 text-center bg-gradient-to-r from-green-500 via-green-600 to-green-700 bg-clip-text text-transparent"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -124,7 +123,7 @@ const HeritageList = ({ token, isAdmin, searchTerm }) => {
 
       {/* Subtitle */}
       <motion.p
-        className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed text-center mb-8"
+        className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed text-center mb-8"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
@@ -135,7 +134,7 @@ const HeritageList = ({ token, isAdmin, searchTerm }) => {
 
       {/* Divider */}
       <motion.div
-        className="h-1 w-24 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 mx-auto rounded-full mb-10"
+        className="h-1 w-24 bg-gradient-to-r from-green-500 via-green-600 to-green-700 mx-auto rounded-full mb-10"
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 1 }}
