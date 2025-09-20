@@ -35,7 +35,7 @@ const InstallPrompt = () => {
       style={{
         position: "fixed",
         top: 16,
-        right: 126,
+        right: 116,
         padding: "6px 12px",
         fontSize: "14px",
         borderRadius: "20px",
