@@ -17,7 +17,12 @@ const HeritageCard = ({ heritage, isAdmin, onEditClick }) => {
               className="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-            <h3 className="absolute bottom-3 left-4 text-xl font-bold text-white drop-shadow-lg backdrop-blur-md px-3 py-1 rounded-lg bg-green-600/70">
+            
+            {/* Glassy Heritage Name */}
+            <h3
+              className="absolute bottom-3 left-4 text-xl font-bold text-white drop-shadow-lg 
+                         backdrop-blur-md bg-white/20 border border-white/30 px-4 py-2 rounded-xl shadow-md"
+            >
               {heritage.name}
             </h3>
           </>
