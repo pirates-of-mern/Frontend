@@ -16,6 +16,7 @@ import StatesPage from "./components/States.jsx";
 import { useState } from "react";
 import InstallPromt from "./hooks/InstallPromt.jsx";
 import CultureCategoryPage from "./pages/CultureCategoryPage.jsx";
+import HeritageMap from ./map/HeritageMap.jsx
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -34,6 +35,7 @@ function App() {
             path="/explore/:stateName/:category"
             element={<CultureCategoryPage />}
           />
+          <Route path="/map" element={<HeritageMap />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/states" element={<StatesPage searchTerm={searchTerm} />} />
