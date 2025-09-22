@@ -1,10 +1,11 @@
+// LandingPage.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import AnimatedHeading from "../components/Landing/AnimatedHeading";
 import StartButton from "../components/Landing/StartButton";
 import VideoGrid from "../components/Landing/VideoGrid";
 import ProfileCard from "../components/cards/ProfileCard";
-
+import MiniMapPreview from "../components/Landing/MiniMapPreview";
 import vid1 from "../assets/vid1.mp4";
 import vid2 from "../assets/vid2.mp4";
 import vid3 from "../assets/vid3.mp4";
@@ -12,6 +13,21 @@ import vid3 from "../assets/vid3.mp4";
 const LandingPage = () => {
   const navigate = useNavigate();
   const handleStartClick = () => navigate("/heritages");
+  const handleMapClick = () => navigate("/map"); // 👈 for map route
+
+  // Example sites (dummy for preview)
+  const previewSites = [
+    {
+      name: "Taj Mahal",
+      category: "Heritage",
+      location: { latitude: 27.1751, longitude: 78.0421 },
+    },
+    {
+      name: "Qutub Minar",
+      category: "Monument",
+      location: { latitude: 28.5244, longitude: 77.1855 },
+    },
+  ];
 
   return (
     <main className="pt-24 px-8 pb-16 bg-gradient-to-br from-green-100 to-green-150 min-h-screen">
@@ -37,7 +53,18 @@ const LandingPage = () => {
         <VideoGrid videos={[vid1, vid2, vid3]} />
       </div>
 
-      {/* Profiles */}
+      {/* 👇 Mini Map Preview Section */}
+      <div
+        className="mt-16 cursor-pointer hover:scale-[1.02] transition-transform duration-300"
+        onClick={handleMapClick}
+      >
+        <MiniMapPreview sites={previewSites} />
+        <p className="text-center mt-4 text-gray-600 font-medium">
+          Click map to explore →
+        </p>
+      </div>
+
+      Profiles
       {[...Array(4)].map((_, i) => (
         <ProfileCard key={i} className="mt-16 mx-auto" />
       ))}
