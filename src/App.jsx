@@ -16,7 +16,7 @@ import StatesPage from "./components/States.jsx";
 import { useState } from "react";
 import InstallPromt from "./hooks/InstallPromt.jsx";
 import CultureCategoryPage from "./pages/CultureCategoryPage.jsx";
-import HeritageMap from ./map/HeritageMap.jsx
+import HeritageMap from "./map/HeritageMap.jsx";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
